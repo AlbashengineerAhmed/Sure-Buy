@@ -8,13 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import App from './App';
-import { HashRouter } from 'react-router-dom';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <HashRouter>
+  <React.StrictMode>
     <App />
-  </HashRouter>,
+  </React.StrictMode>
 );
 
