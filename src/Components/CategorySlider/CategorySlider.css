@@ -1,0 +1,17 @@
+.name-category-item {
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    left: 2.5%;
+    right: 2.5%;
+    height: 40px;
+    background-color: var(--light-color);
+    text-align: center;
+    color: var(--main-color);
+    transition: opacity 0.5s ease-in;
+    font-family: var(--font-family);
+}
+
+.container-category:hover .name-category-item {
+    opacity: 1;
+}

@@ -1,0 +1,22 @@
+.span-icon{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+@media screen and (max-width:991px){
+  .span-icon{
+    position: absolute;
+    top: -5px;
+    right: 95%;
+  }
+  .nav-item{
+    margin-top: 10px;
+  }
+  .nav-link {
+    margin: 0 !important;
+    padding-inline: 0 !important;
+  }
+  /* form{
+    margin-right: 0 !important;
+  } */
+}

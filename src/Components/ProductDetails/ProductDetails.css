@@ -1,0 +1,7 @@
+.btn-main-color{
+    background-color: var(--main-color);
+    color: var(--light-color);
+}
+.image-details{
+    height: 500px;
+}

@@ -1,0 +1,9 @@
+.notfound{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-image-notfound{
+  width: 80%;
+}
