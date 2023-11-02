@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function GridView({ allProducts, addToWishlist, removeFromWishlist }) {
 return (
-    <div className="row g-5 my-2">
+    <div className="row gy-5 my-2">
     {allProducts.map(function (pro, idx) {
         return (
         <div key={idx} className="col-md-3">

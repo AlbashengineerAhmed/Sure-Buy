@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
 
 return (
     <div className="container login-container d-flex justify-content-center align-items-center">
-    <div className="row w-50">
+    <div className="row col-md-6 col-12">
         <h2>Forgot Password</h2>
         {successMessage && <div>{successMessage}</div>}
         {error && <div>{error}</div>}

@@ -25,7 +25,7 @@ export default function Categories() {
     <div className="container-fluid mt-5">
       <h2>Categories</h2>
       {allcategory ? (
-        <div className="row px-5 align-items-center g-5">
+        <div className="row py-5 align-items-center gy-5">
           <div className="col-lg-3 col-md-4 col-sm-6 col-12">
             <div className="textBrands">
               <h3 className="text-success fw-bolder">Our Category</h3>

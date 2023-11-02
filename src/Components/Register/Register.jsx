@@ -67,7 +67,7 @@ const showRePassword = () => {
 
 return (
     <div className="container register-container d-flex justify-content-center align-items-center">
-    <div className="row w-50">
+    <div className="row col-md-6 col-12">
         <div className="wrapper text-center">
         <img src={require('../../images/logo-auth.png')} className="w-50" style={{ height: '200px' }} alt="" />
         </div>

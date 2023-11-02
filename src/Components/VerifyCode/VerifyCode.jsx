@@ -39,7 +39,7 @@ async function verifyPassword(obj){
 
   return(
     <div className="container login-container d-flex justify-content-center align-items-center">
-      <div className="row mt-3 w-50">
+      <div className="row mt-3 col-md-6 col-12">
           <h2>Verify Code</h2>
           <form onSubmit={verifyCode.handleSubmit}>
           <div className="container my-3">
