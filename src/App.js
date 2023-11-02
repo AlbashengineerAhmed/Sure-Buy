@@ -1,4 +1,4 @@
-import {Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {Navigate, RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import './App.css';
 import MainLayout from './Components/Layout/MainLayout';
 import HomePage from './Components/Pages/HomePage';
@@ -56,7 +56,7 @@ function App() {
       },[]);
 
 
-  let routes = createBrowserRouter([
+  let routes = createHashRouter([
     {path:'/',element:<MainLayout crrUser={crrUser} clearUserData={clearUserData}/>,
     children:[
       {index:true,element:<HomePage/>},
