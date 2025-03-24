@@ -5,6 +5,7 @@ import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from '../../context/cartContext';
+import BASE_URL from '../Utils/baseUrl';
 
 export default function Payment() {
   const { cartId } = useContext(CartContext);
@@ -13,16 +14,16 @@ export default function Payment() {
   async function cashOrder() {
     try {
       const { data } = await axios.post(
-        `https://route-ecommerce.onrender.com/api/v1/orders/${localStorage.getItem('cartId')}`,
+        `${BASE_URL}orders/${localStorage.getItem("cartId")}`,
         {
           shippingAddress: {
-            details: document.querySelector('#details').value,
-            phone: document.querySelector('#phone').value,
-            city: document.querySelector('#city').value,
+            details: document.querySelector("#details").value,
+            phone: document.querySelector("#phone").value,
+            city: document.querySelector("#city").value,
           },
         },
         {
-          headers: { 'token': localStorage.getItem('ahmedToken') },
+          headers: { token: localStorage.getItem("ahmedToken") },
         }
       );
       if (data.status === 'success') {

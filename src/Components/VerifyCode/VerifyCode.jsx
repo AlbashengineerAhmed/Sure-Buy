@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../Utils/baseUrl';
 
 
 export default function VerifyCode() {
@@ -23,7 +24,10 @@ let verifyCode = useFormik({
 async function verifyPassword(obj){
   setLoading(true);
   try {
-    const {data} = await axios.post(`https://route-ecommerce.onrender.com/api/v1/auth/verifyResetCode`,obj)
+    const { data } = await axios.post(
+      `${BASE_URL}auth/verifyResetCode`,
+      obj
+    );
     // console.log(data);
     setLoading(false);
     if(data.status === 'Success'){

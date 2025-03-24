@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../Utils/baseUrl';
 
 
 
@@ -40,7 +41,10 @@ return errors;
 async function resetPassword(obj){
 setLoading(true);
 try {
-    const {data} = await axios.put(`https://route-ecommerce.onrender.com/api/v1/auth/resetPassword`,obj)
+    const { data } = await axios.put(
+      `${BASE_URL}auth/resetPassword`,
+      obj
+    );
     // console.log(data);
     setLoading(false);
     if(data.token != null){
@@ -81,7 +85,7 @@ return(
             <div className="inputWithIcon position-relative">
             <input onChange={resetPass.handleChange} onBlur={resetPass.handleBlur} value={resetPass.values.newPassword}  id="newPassword" type="password" name='newPassword' placeholder='Enter New Password' className='form-control my-2'  />
             {resetPass.errors.newPassword && resetPass.touched.newPassword ?<div className='alert alert-danger text-center '>{ resetPass.errors.newPassword }</div>:''}
-            <i class="fa-solid fa-eye fs-5 position-absolute end-0 top-0 p-2" onClick={showNewPassword} id="togglePassword"></i>
+            <i className="fa-solid fa-eye fs-5 position-absolute end-0 top-0 p-2" onClick={showNewPassword} id="togglePassword"></i>
             </div>
 
             {loading ? <button type='button' className='btn btn-outline-success mt-3 fw-bolder'>

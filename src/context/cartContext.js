@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import $ from "jquery";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import BASE_URL from "../Components/Utils/baseUrl";
 
 export let CartContext = createContext(0);
 
@@ -18,7 +19,7 @@ export default function CartContextProvider({ children }) {
   async function addProductToCart(proId) {
     try {
       const { data } = await axios.post(
-        "https://route-ecommerce.onrender.com/api/v1/cart",
+        `${BASE_URL}cart`,
         {
           productId: proId,
         },
@@ -52,12 +53,9 @@ export default function CartContextProvider({ children }) {
 
   async function getCartProducts() {
     try {
-      const { data } = await axios.get(
-        "https://route-ecommerce.onrender.com/api/v1/cart",
-        {
-          headers: { token: localStorage.getItem("ahmedToken") },
-        }
-      );
+      const { data } = await axios.get(`${BASE_URL}cart`, {
+        headers: { token: localStorage.getItem("ahmedToken") },
+      });
       // console.log(data);
       if (data.status === "success") {
         setNumOfCartItems(data.numOfCartItems);
@@ -80,7 +78,7 @@ export default function CartContextProvider({ children }) {
   async function removeCartItem(id) {
     try {
       const { data } = await axios.delete(
-        `https://route-ecommerce.onrender.com/api/v1/cart/${id}`,
+        `${BASE_URL}cart/${id}`,
         {
           headers: { token: localStorage.getItem("ahmedToken") },
         }
@@ -115,12 +113,9 @@ export default function CartContextProvider({ children }) {
 
   async function clearCart() {
     try {
-      const { data } = await axios.delete(
-        `https://route-ecommerce.onrender.com/api/v1/cart`,
-        {
-          headers: { token: localStorage.getItem("ahmedToken") },
-        }
-      );
+      const { data } = await axios.delete(`${BASE_URL}cart`, {
+        headers: { token: localStorage.getItem("ahmedToken") },
+      });
         // console.log(data);
       if (data.message === "success") {
         setNumOfCartItems(0);
@@ -148,7 +143,7 @@ export default function CartContextProvider({ children }) {
   async function updateCount(id, numCount) {
     try {
       const { data } = await axios.put(
-        `https://route-ecommerce.onrender.com/api/v1/cart/${id}`,
+        `${BASE_URL}cart/${id}`,
         {
           count: numCount,
         },
@@ -169,12 +164,9 @@ export default function CartContextProvider({ children }) {
 
   async function getWishlist() {
     try {
-      const { data } = await axios.get(
-        "https://route-ecommerce.onrender.com/api/v1/wishlist",
-        {
-          headers: { token: localStorage.getItem("ahmedToken") },
-        }
-      );
+      const { data } = await axios.get(`${BASE_URL}wishlist`, {
+        headers: { token: localStorage.getItem("ahmedToken") },
+      });
       if (data.status === "success") {
         setNumOfWishlist(data.count);
         setWishlistProducts(data.data);
@@ -188,7 +180,7 @@ export default function CartContextProvider({ children }) {
   async function addToWishlist(id) {
     try {
       const { data } = await axios.post(
-        `https://route-ecommerce.onrender.com/api/v1/wishlist`,
+        `${BASE_URL}wishlist`,
         {
           productId: id,
         },
@@ -225,12 +217,9 @@ export default function CartContextProvider({ children }) {
 
   async function removeWishlist(id) {
     try {
-      const { data } = await axios.delete(
-        `https://route-ecommerce.onrender.com/api/v1/wishlist/${id}`,
-        {
-          headers: { token: localStorage.getItem("ahmedToken") },
-        }
-      );
+      const { data } = await axios.delete(`${BASE_URL}wishlist/${id}`, {
+        headers: { token: localStorage.getItem("ahmedToken") },
+      });
       if (data.status === "success") {
         setNumOfWishlist(data.count);
         setWishlistProducts(data.data);

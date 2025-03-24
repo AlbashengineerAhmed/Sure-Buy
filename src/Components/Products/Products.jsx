@@ -8,6 +8,7 @@ import { CartContext } from '../../context/cartContext';
 import GridView from './../GridView/GridView';
 import ListView from './../ListView/ListView';
 import { toast } from 'react-toastify';
+import BASE_URL from '../Utils/baseUrl';
 
 export default function Products() {
 const { id } = useParams();
@@ -18,8 +19,7 @@ const [viewType, setViewType] = useState('grid');
 
 async function getCategoryProducts() {
     try {
-    const { data } = await axios.get('https://route-ecommerce.onrender.com/api/v1/products', {
-    });
+    const { data } = await axios.get(`${BASE_URL}products`, {});
     // console.log(data);
     setAllProducts(data.data);
     } catch (error) {

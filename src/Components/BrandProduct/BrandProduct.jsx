@@ -5,6 +5,7 @@ import axios from 'axios';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import { CartContext } from '../../context/cartContext';
 import { toast } from 'react-toastify';
+import BASE_URL from './../Utils/baseUrl';
 
 export default function BrandProduct() {
     const {addToWishlist,removeWishlist} = useContext(CartContext);
@@ -15,9 +16,9 @@ const {id} = useParams();
 const [allProducts, setAllProducts] = useState(null);
 async function getBrandProducts (){
     try {
-    const {data} = await axios.get('https://route-ecommerce.onrender.com/api/v1/products',{
-    params:{ 'brand' : id}
-    })
+    const { data } = await axios.get(`${BASE_URL}products`, {
+      params: { brand: id },
+    });
     setAllProducts(data.data);
     } catch (error) {
         // console.log('Error : ',error);
@@ -49,8 +50,8 @@ return (
     {allProducts.length == 0 ? <img className='w-75 m-auto' src={require('../../images/no-product-found.png')}/> :
     allProducts.map(function(pro,idx){ return <div key={idx} className="col-md-3 my-4">
             <div className="item text-white h-100 rounded-5 position-relative shadow-sm image">
-            <i id={`addWishlist${idx}`} onClick={function(){addWishlist(pro.id,idx)}} class=" fa-regular fa-heart text-dark fs-4 position-absolute top-0 end-0 m-3"></i>
-            <i id={`delWishlist${idx}`} onClick={function(){removeFromWishlist(pro.id,idx)}} style={{'display':'none'}} class="fa-solid fa-heart fs-4 position-absolute top-0 end-0 m-3 text-danger" ></i>
+            <i id={`addWishlist${idx}`} onClick={function(){addWishlist(pro.id,idx)}} className=" fa-regular fa-heart text-dark fs-4 position-absolute top-0 end-0 m-3"></i>
+            <i id={`delWishlist${idx}`} onClick={function(){removeFromWishlist(pro.id,idx)}} style={{'display':'none'}} className="fa-solid fa-heart fs-4 position-absolute top-0 end-0 m-3 text-danger" ></i>
             <img src={pro.imageCover} className="w-100 rounded-5 image-action" style={{'height':'300px'}} alt={pro.title} />
             <h5 className='px-3 text-start text-success pt-3'>{pro.title.slice( 0,pro.title.indexOf(' ', 10 ) )}</h5>
             <h6 className='px-3 text-black '>{pro.category.name}</h6>

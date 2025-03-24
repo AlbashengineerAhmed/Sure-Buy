@@ -12,14 +12,14 @@ export default function Wishlist({crrUser}) {
 
   return (
     <div>
-      <h2>your Wishlist <i class="fa-solid fa-heart text-danger"></i></h2>
+      <h2>your Wishlist <i className="fa-solid fa-heart text-danger"></i></h2>
       { wishlistProducts !== null ? <div className="container py-3">
         {wishlistProducts.length > 0?
         <div className="row g-5 my-2 ">
         { wishlistProducts.map(function(pro,idx){
           return  <div key={idx} className="col-lg-3 col-md-6 col-12">
           <div className="cart-customize item text-white h-100 rounded-5 position-relative image shadow-sm" >
-          <i id={`delWishlist${idx}`} onClick={function(){removeFromWishlish(pro._id,idx)}} class="fa-solid fa-heart fs-4 position-absolute top-0 end-0 m-3 text-danger" ></i>
+          <i id={`delWishlist${idx}`} onClick={function(){removeFromWishlish(pro._id,idx)}} className="fa-solid fa-heart fs-4 position-absolute top-0 end-0 m-3 text-danger" ></i>
             <div className='image-container  overflow-hidden '>
               <img src={pro.imageCover} className="w-100 rounded-top-5 image-action" alt={pro.title} style={{'height':'350px'}} />
             </div>

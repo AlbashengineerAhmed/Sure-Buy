@@ -8,6 +8,7 @@ import { CartContext } from '../../context/cartContext';
 import './CategoryProducts.css';
 import GridView from './../GridView/GridView';
 import ListView from './../ListView/ListView';
+import BASE_URL from '../Utils/baseUrl';
 
 export default function Categoryproducts() {
   const { id } = useParams();
@@ -18,7 +19,7 @@ export default function Categoryproducts() {
 
   async function getCategoryProducts() {
     try {
-      const { data } = await axios.get('https://route-ecommerce.onrender.com/api/v1/products', {
+      const { data } = await axios.get(`${BASE_URL}products`, {
         params: { category: `${id}` },
       });
       // console.log(data);

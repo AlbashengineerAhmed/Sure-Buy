@@ -5,6 +5,7 @@ import { CartContext } from '../../context/cartContext';
 import Slider from 'react-slick';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import './ProductDetails.css'
+import BASE_URL from '../Utils/baseUrl';
 
 export default function ProductDetails() {
 
@@ -34,7 +35,7 @@ export default function ProductDetails() {
   async function getProductDetails(){
     
     try {
-      const { data } = await axios.get(`https://route-ecommerce.onrender.com/api/v1/products/${id}`);
+      const { data } = await axios.get(`${BASE_URL}products/${id}`);
       setProductDetails(data.data);
       // console.log(data.data); 
       

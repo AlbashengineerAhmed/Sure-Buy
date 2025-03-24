@@ -2,13 +2,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import { toast } from 'react-toastify';
+import BASE_URL from '../Utils/baseUrl';
 
 export default function AllOrders({ crrUser }) {
   const [allOrders, setAllOrders] = useState(null);
 
   async function getAllOrders() {
     try {
-      const { data } = await axios.get(`https://route-ecommerce.onrender.com/api/v1/orders/user/${crrUser.id}`);
+      const { data } = await axios.get(`${BASE_URL}orders/user/${crrUser.id}`);
       setAllOrders(data);
     } catch (error) {
       // console.log('Error:', error);

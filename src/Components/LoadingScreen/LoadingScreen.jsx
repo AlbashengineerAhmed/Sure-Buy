@@ -3,21 +3,21 @@ import "./LoadingScreen.css";
 
 export default function LoadingScreen() {
 return (
-    <div class="container background-loading">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="loader">
-                <div class="loader-inner">
-                    <div class="loading one"></div>
+    <div className="container background-loading">
+    <div className="row">
+        <div className="col-md-12">
+            <div className="loader">
+                <div className="loader-inner">
+                    <div className="loading one"></div>
                 </div>
-                <div class="loader-inner">
-                    <div class="loading two"></div>
+                <div className="loader-inner">
+                    <div className="loading two"></div>
                 </div>
-                <div class="loader-inner">
-                    <div class="loading three"></div>
+                <div className="loader-inner">
+                    <div className="loading three"></div>
                 </div>
-                <div class="loader-inner">
-                    <div class="loading four"></div>
+                <div className="loader-inner">
+                    <div className="loading four"></div>
                 </div>
             </div>
         </div>

@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import { Link } from 'react-router-dom';
+import BASE_URL from './../Utils/baseUrl';
 
 export default function Brands() {
     const [allBrands, setAllBrands] = useState(null);
 
     async function getAllBrands(){
-    const { data } = await axios.get('https://route-ecommerce-app.vercel.app/api/v1/brands');
+    const { data } = await axios.get(`${BASE_URL}brands`);
     // console.log(data);
     setAllBrands(data.data);
     }
